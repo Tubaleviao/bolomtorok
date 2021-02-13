@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Player/KinematicBody.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/novice.png" type="Texture" id=2]
+[ext_resource path="res://Player/Rotate.gd" type="Script" id=3]
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 23
@@ -62,19 +63,18 @@ script = ExtResource( 1 )
 frames = SubResource( 10 )
 animation = "front-walk"
 
-[node name="Camera" type="Camera" parent="Position3D/AnimatedSprite3D"]
+[node name="Rotate" type="Spatial" parent="Position3D/AnimatedSprite3D"]
+script = ExtResource( 3 )
+
+[node name="Horizontally" type="Spatial" parent="Position3D/AnimatedSprite3D/Rotate"]
+
+[node name="Vertically" type="Spatial" parent="Position3D/AnimatedSprite3D/Rotate/Horizontally"]
+
+[node name="Camera" type="Camera" parent="Position3D/AnimatedSprite3D/Rotate/Horizontally/Vertically"]
 transform = Transform( 1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 2, 5 )
-visible = false
 doppler_tracking = 2
+current = true
 size = 10.0
-
-[node name="ARVROrigin" type="ARVROrigin" parent="Position3D/AnimatedSprite3D"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.38419e-07, 0 )
-
-[node name="ARVRAnchor" type="ARVRAnchor" parent="Position3D/AnimatedSprite3D/ARVROrigin"]
-
-[node name="ARVRCamera" type="ARVRCamera" parent="Position3D/AnimatedSprite3D/ARVROrigin"]
-transform = Transform( 1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 2, 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
