@@ -32,5 +32,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _process(delta):
 	if Input.is_action_pressed("ui_down"):
 		$Position3D/AnimatedSprite3D.play("front-walk")
+	elif Input.is_action_pressed("ui_left"):
+		$Position3D/AnimatedSprite3D.play("left-walk")
 	else:
 		$Position3D/AnimatedSprite3D.stop()
