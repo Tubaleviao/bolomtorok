@@ -13,6 +13,8 @@ var controlling = false
 
 func _process(delta):
 	vertically.set_translation(vertically.get_translation().linear_interpolate(zoom, delta))
+	var camera_pos = get_viewport().get_camera().global_transform.origin
+	
 
 func _ready():
 	pass # Replace with function body.

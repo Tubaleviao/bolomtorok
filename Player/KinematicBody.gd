@@ -34,5 +34,9 @@ func _process(delta):
 		$Position3D/AnimatedSprite3D.play("front-walk")
 	elif Input.is_action_pressed("ui_left"):
 		$Position3D/AnimatedSprite3D.play("left-walk")
+	elif Input.is_action_pressed("ui_right"):
+		$Position3D/AnimatedSprite3D.play("right-walk")
+	elif Input.is_action_pressed("ui_up"):
+		$Position3D/AnimatedSprite3D.play("back-walk")
 	else:
 		$Position3D/AnimatedSprite3D.stop()
