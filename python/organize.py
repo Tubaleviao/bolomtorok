@@ -58,9 +58,9 @@ def interact():
         
     frame = novice.crop((left, top, right, bottom))
     if(len(frames) > 0  
-        # discarta a imagem grande
-        and frame.size[1] > frames[-1].size[1]+math.floor(frames[-1].size[1]/2)):
-        print( frame.size[1], frames[-1].size[1]+math.floor(frames[-1].size[1]/2) )
+        # discarta nego grande
+        and frame.size[1] > frames[-1].size[1]+math.floor(frames[-1].size[1]/1.5)):
+        print( "coordenadas do nego descartado: ", pixel )
         pixel = [ right+1, pixel[1] ]
     else:
         frames.append(frame)
@@ -99,7 +99,8 @@ while( pixel[1] < novice.size[1] ):
         if(len(frames) > 0):
             frames2d.append(frames)
         frames = []
-        pixel[1] = pixel[1] + frames2d[-1][-1].size[1]
+        # considerando 9 colunas
+        pixel[1] = pixel[1] + math.floor(novice.size[1]/9) 
         pixel[0] = 0
     else:
         if(novice.getpixel((pixel[0], pixel[1]))[3] == 0):
@@ -112,6 +113,7 @@ while( pixel[1] < novice.size[1] ):
             bottom = pixel[1]
             interact()
 
+# deixa todos os frames do mesmo tamanho
 for f1d in range(len(frames2d)):
     for i in range(len(frames2d[f1d])):
         n = Image.new(mode="RGBA", size=(maxw, maxh), color=(0,0,0,0))
@@ -138,4 +140,4 @@ def concat_tile(twodlist):
 final = concat_tile( frames2d )
 final.save( "haahaha.png" )
 
-print( "done with " + str(len(frames2d)) ) # 110
+print( "done with " + str(sum([len(x) for x in frames2d]) ) ) # 110
