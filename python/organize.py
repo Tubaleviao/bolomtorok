@@ -9,6 +9,7 @@ for file in glob.glob('classes/**/*.png', recursive=True):
     print("reading file "+file)
 
     novice=Image.open(file)
+    novice = novice.convert('RGBA')
     pixel = int(3)
     frames = []
     frames2d = []
@@ -67,7 +68,8 @@ for file in glob.glob('classes/**/*.png', recursive=True):
         frame = novice.crop((left, top, right, bottom))
         if(len(frames) > 0  
             # discarta nego grande
-            and frame.size[1] > frames[-1].size[1]+math.floor(frames[-1].size[1]/1.5)):
+            and (frame.size[1] > frames[-1].size[1]+math.floor(frames[-1].size[1]/1.5)
+            or frame.size[0] > frames[-1].size[0]+math.floor(frames[-1].size[0]/1.5)) ):
             print( "nego em "+file+" no pixel "+ str(pixel) + " descartado" )
             pixel = [ right+1, pixel[1] ]
         else:
@@ -154,6 +156,6 @@ for file in glob.glob('classes/**/*.png', recursive=True):
 
     final = concat_tile( frames2d )
     Path(file).unlink()
-    final.save( str(time.time())+ ".png" )
+    final.save(file) #  str(time.time())+ ".png" 
 
     print( file+" has " + str(sum([len(x) for x in frames2d]) ) + " frames" ) # 110
