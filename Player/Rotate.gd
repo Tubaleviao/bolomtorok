@@ -3,6 +3,8 @@ var zoom = Vector3(0,0,0)
 var panning = false
 onready var vertically = get_node("Horizontally/Vertically")
 onready var horizontally = get_node("Horizontally")
+onready var sprite = get_node("/root/Spatial/KinematicBody") as KinematicBody
+onready var posit3D = get_node("/root/Spatial/KinematicBody/Position3D") as Position3D
 var min_arm_angle = -85
 var max_arm_angle = -25
 var changing_angle = false
@@ -31,6 +33,7 @@ func _input(event):
 				var new_y = (-event.position.x/100)+inital_pos_x 
 				var new_angle = Vector3(0, new_y, 0)
 				horizontally.set_rotation(new_angle)
+				print(horizontally.get_rotation())
 	if event is InputEventMouseButton:
 		being_pressed = event.is_pressed()
 		if event.button_mask == BUTTON_RIGHT: #BUTTON_WHEEL_DOWN:

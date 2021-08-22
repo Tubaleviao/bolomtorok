@@ -1,20 +1,41 @@
 extends KinematicBody
 
-const FLOOR_NORMAL = Vector3(0.0, 1.0, 0.0)
+const FLOOR_NORMAL = Vector3(1.0, 0.0, 1.0)
 
 export var speed := 7.0
 export var gravity := 30.0
 export var jump_force := 12.0
 
 onready var idle = preload("res://Sprites/idle.png")
+onready var horizontally = get_node("Position3D/AnimatedSprite3D/Rotate/Horizontally") as Spatial
+
 
 var velocity_y := 0.0
 
 func _physics_process(delta: float) -> void:
+	var x
+	var y
+	var spins = fmod(horizontally.get_rotation().y, 6.28) / 6.28
+	var quarterspin = fmod(horizontally.get_rotation().y, 1.57) / 1.57
+	if spins < 0.25:
+		x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+		x *= quarterspin
+	elif spins < 0.5:
+		x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+		x *= 1 / quarterspin
+	elif spins < 0.75:
+		x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+		x *= quarterspin
+	else:
+		x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+		x *= 1 / quarterspin
+
 	var direction_ground := Vector2(
-		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
+		x,
 		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")).normalized()
 	
+#	print(direction_ground)	
+		
 	if not is_on_floor():
 		velocity_y -= gravity * delta
 	
