@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Bolomtorok.mp3-4e5079e815bc4c63766a4e7416e49067.mp3str"
+
+[deps]
+
+source_file="res://Assets/BGM/Bolomtorok.mp3"
+dest_files=[ "res://.import/Bolomtorok.mp3-4e5079e815bc4c63766a4e7416e49067.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

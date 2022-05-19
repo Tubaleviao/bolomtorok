@@ -1,0 +1,196 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Assets/Background/LoginScreen.jpg" type="Texture" id=1]
+[ext_resource path="res://Assets/Fonts/Allembert.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Assets/Background/LoginResource.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Fonts/Arial.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Scenes/Instances/LoginScreen.cs" type="Script" id=5]
+[ext_resource path="res://Assets/Background/LoginResourceComJin.png" type="Texture" id=6]
+[ext_resource path="res://Assets/BGM/Bolomtorok.mp3" type="AudioStream" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxFlat" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[node name="UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="BackGroundImage" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Text - Bolomtorok" type="Label" parent="BackGroundImage"]
+anchor_left = 0.141
+anchor_top = 0.053
+anchor_right = 0.859
+anchor_bottom = 0.385
+margin_left = -0.384003
+margin_top = 0.200001
+margin_right = 0.383972
+margin_bottom = -1.52588e-05
+size_flags_vertical = 0
+custom_colors/font_color = Color( 0.81, 0.1458, 0.1458, 1 )
+custom_colors/font_outline_modulate = Color( 0.882353, 0.0431373, 0.0431373, 1 )
+custom_colors/font_color_shadow = Color( 0.956863, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "BOLOMTOROK"
+
+[node name="BackGroundImage - Login Resource" type="TextureRect" parent="."]
+visible = false
+anchor_left = 0.273438
+anchor_top = 0.253333
+anchor_right = 0.714844
+anchor_bottom = 1.01333
+margin_bottom = 6.10352e-05
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LineEditUser" type="LineEdit" parent="BackGroundImage - Login Resource"]
+anchor_left = 0.320796
+anchor_top = 0.423246
+anchor_right = 0.79646
+anchor_bottom = 0.535088
+margin_bottom = 1.52588e-05
+rect_pivot_offset = Vector2( 0, 0.763 )
+rect_clip_content = true
+custom_colors/cursor_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+custom_styles/normal = SubResource( 5 )
+placeholder_text = "Usuário"
+caret_blink = true
+caret_blink_speed = 0.5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LineEditPassword" type="LineEdit" parent="BackGroundImage - Login Resource"]
+anchor_left = 0.318584
+anchor_top = 0.563597
+anchor_right = 0.79646
+anchor_bottom = 0.675439
+custom_colors/cursor_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+custom_styles/normal = SubResource( 4 )
+secret = true
+context_menu_enabled = false
+selecting_enabled = false
+placeholder_text = "Senha"
+caret_blink = true
+caret_blink_speed = 0.5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Button" type="Button" parent="BackGroundImage - Login Resource"]
+self_modulate = Color( 0, 0, 0, 0 )
+anchor_left = 0.201
+anchor_top = 0.702
+anchor_right = 0.799
+anchor_bottom = 0.816
+margin_left = 0.147995
+margin_top = -0.112
+margin_right = -0.14801
+margin_bottom = -0.0960083
+action_mode = 0
+
+[node name="BackGroundImage - Login Resource2" type="TextureRect" parent="."]
+anchor_left = 0.273438
+anchor_top = 0.253333
+anchor_right = 0.714844
+anchor_bottom = 1.01333
+margin_bottom = 6.10352e-05
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 1
+
+[node name="LineEditUser" type="LineEdit" parent="BackGroundImage - Login Resource2"]
+anchor_left = 0.329646
+anchor_top = 0.423247
+anchor_right = 0.796461
+anchor_bottom = 0.53509
+margin_bottom = 1.52588e-05
+rect_pivot_offset = Vector2( 0, 0.763 )
+rect_clip_content = true
+custom_colors/cursor_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+custom_styles/normal = SubResource( 5 )
+placeholder_text = "Usuário"
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="LineEditPassword" type="LineEdit" parent="BackGroundImage - Login Resource2"]
+anchor_left = 0.329646
+anchor_top = 0.563599
+anchor_right = 0.796461
+anchor_bottom = 0.675441
+rect_clip_content = true
+custom_colors/cursor_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+custom_styles/normal = SubResource( 4 )
+secret = true
+context_menu_enabled = false
+placeholder_text = "Senha"
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="LoginButton" type="Button" parent="BackGroundImage - Login Resource2"]
+self_modulate = Color( 0, 0, 0, 0 )
+anchor_left = 0.201
+anchor_top = 0.702
+anchor_right = 0.799
+anchor_bottom = 0.816
+margin_left = 0.147995
+margin_top = -0.112
+margin_right = -0.14801
+margin_bottom = -0.0960083
+action_mode = 0
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -28.0
+margin_top = -52.0
+margin_right = 28.0
+margin_bottom = -38.0
+text = "Registrar"
+
+[node name="Button" type="Button" parent="Label"]
+margin_right = 56.0
+margin_bottom = 14.0
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 7 )
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -5.0
+autoplay = true
+
+[connection signal="pressed" from="BackGroundImage - Login Resource2/LoginButton" to="." method="OnLoginButtonPressed"]
+[connection signal="pressed" from="Label/Button" to="." method="OnRegisterButtonPressed"]

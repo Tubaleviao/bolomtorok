@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/LoginResourceComJin.png-795f0f6b80ac5bab21ad5ad1ff8299c4.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Assets/Background/LoginResourceComJin.png"
+dest_files=[ "res://.import/LoginResourceComJin.png-795f0f6b80ac5bab21ad5ad1ff8299c4.stex" ]
+
+[params]
+
+compress/mode=1
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=1
+flags/repeat=1
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=true
+flags/srgb=0
+process/fix_alpha_border=true
+process/premult_alpha=true
+process/HDR_as_SRGB=true
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=0
+size_limit=0
+detect_3d=false
+svg/scale=1.0
